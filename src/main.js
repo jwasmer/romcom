@@ -14,6 +14,19 @@ var currentCover;
 
 
 // We've provided one function to get you started
+
+var randomCoverIndex = getRandomIndex(covers);
+var randomTitleIndex = getRandomIndex(titles);
+var randomDescriptorIndex1 = getRandomIndex(descriptors);
+var randomDescriptorIndex2 = getRandomIndex(descriptors);
+
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
+
+function buildRandomCover(cover, title, descriptor1, descriptor2) {
+  var randomCover = new Cover(cover, title, descriptor1, descriptor2);
+  return randomCover;
+}
+
+var newCoverInstance = buildRandomCover(covers[randomCoverIndex], titles[randomTitleIndex], descriptors[randomDescriptorIndex1], descriptors[randomDescriptorIndex2]);
