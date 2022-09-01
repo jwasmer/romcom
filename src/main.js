@@ -9,9 +9,19 @@ var currentCover;
 
 // Add your event listeners here 👇
 
+var button = document.querySelector('.random-cover-button')
+
+button.addEventListener('click', buildRandomCover(covers[randomCoverIndex], titles[randomTitleIndex], descriptors[randomDescriptorIndex1], descriptors[randomDescriptorIndex2]))
+
 
 // Create your event handlers and other functions here 👇
+//
+// document.querySelector(".random-cover-button")
+// var coverGen = document.querySelector(".random-cover-button")
 
+// console.log(coverGen)
+
+// function changeCover() { ...
 
 // We've provided one function to get you started
 
@@ -26,6 +36,7 @@ function getRandomIndex(array) {
 
 function buildRandomCover(cover, title, descriptor1, descriptor2) {
   var randomCover = new Cover(cover, title, descriptor1, descriptor2);
+  console.log(randomCover);
   return randomCover;
 }
 
