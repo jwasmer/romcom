@@ -10,6 +10,24 @@ var viewSavedButton = document.querySelector('.view-saved-button');
 // Cover-view buttons
 var currentCover = document.querySelector('.cover-image');
 var coverButton = document.querySelector('.random-cover-button');
+Cover Input box tracking input values
+var coverInput = document.querySelector('.user-cover')
+// post input read
+coverInput.value
+// title Input box tracking input values
+var titleInput = document.querySelector('.user-title')
+// post title read
+titleInput.value
+// description1 input box
+var userDes1 = document.querySelector(".user-desc1")
+//post title read
+userDes1.value
+// discription2 input box
+var userDes2 = document.querySelector(".user-desc2")
+// post input
+userDes2.value
+Make My book button
+var makeMyBookButton = document.querySelector('.create-new-book-button')
 
 //all of things to interact with dom//
 // We've provided a few variables below
@@ -27,9 +45,11 @@ coverButton.addEventListener('click', changeCovers);
 saveButton.addEventListener('click', openSavedCovers);
 // Opens home page view when button is clicked
 homeButton.addEventListener('click', openHomePage);
+// When the make my Book button is clicked
+makeMyBookButton.addEventListener('click',savingCreatedBook);
 
 // Create your event handlers and other functions here 👇
-
+document.querySelector('.cover-image').value
 
 // We've provided one function to get you started
 function getRandomIndex(array) {
@@ -62,6 +82,16 @@ function openHomePage() {
   coverFormButton.classList.remove('hidden');
   homeButton.classList.add('hidden');
 }
+
+function savingCreatedBook(){
+  covers.push(coverInput.value);
+  titles.push(titleInput.value);
+  disciptors.push(userDes1.value,userDes2.value)
+}
+
+
+
+
 // Changes cover picture
 function changeCovers() {
   var newCover = covers[Math.floor(Math.random() * covers.length)]
