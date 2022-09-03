@@ -16,7 +16,7 @@ var savedCoversSection = document.querySelector('.saved-covers-section');
 var savedCovers = [];
 var newCover = new Cover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows");
 
-//Event handlers
+// Event Handlers
 coverFormButton.addEventListener('click', openForm);
 coverButton.addEventListener('click', changeCovers);
 viewSavedButton.addEventListener('click', openSavedCovers);
@@ -32,7 +32,6 @@ function openForm() {
   homeButton.classList.remove('hidden');
   formPage.classList.remove('hidden');
 };
-
 
 function copyHomePage() {
   if (!savedCovers.includes(newCover)) {
