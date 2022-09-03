@@ -12,6 +12,7 @@ They have to fork from James W github since he had the original repository, then
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
 The save function was the coolest feature that spanned many different abilities< photo showed seperately.
+https://freeimage.host/i/screen-shot-2022-09-03-45233-pm.6uJ4Ia
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
 James W & Andy C: Together we started 4-5 hours Wed, 4 hours thurs, friday 6 hours , saturday 7 hours. total 23-25hours. We are mod 1 week 2
@@ -26,4 +27,4 @@ James W: https://github.com/jwasmer/romcom
 Learning goals first DOM and JS interaction. First group project balancing partnership. Research material we didn't know. See how interactive jS can make a site. relationship between classes and intergrating logic in function building.
 ### Wins + Challenges:
 [//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
-1. Getting the site to work 2. seeing the interaction and making something 3. Accessing HTML element and changing them solved by research, cohort out reach, seeing examples, trial and error. 
+1. Getting the site to work 2. seeing the interaction and making something 3. Accessing HTML element and changing them solved by research, cohort out reach, seeing examples, trial and error.
