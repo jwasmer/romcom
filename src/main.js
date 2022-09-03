@@ -26,6 +26,7 @@ saveButton.addEventListener('click', copyHomePage);
 
 // Functions
 function openForm() {
+  savedPage.classList.add('hidden');
   homePage.classList.add('hidden');
   coverButton.classList.add('hidden');
   saveButton.classList.add('hidden');
@@ -68,6 +69,7 @@ function displayCover(coverInstance) {
 function openSavedCovers() {
   homePage.classList.add('hidden');
   saveButton.classList.add('hidden');
+  formPage.classList.add('hidden');
   coverButton.classList.add('hidden');
   homeButton.classList.remove('hidden');
   savedPage.classList.remove('hidden');
