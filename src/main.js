@@ -1,16 +1,13 @@
-// Create variables targetting the relevant DOM elements here 👇
-// Page views
+// Declared variables
 var homePage = document.querySelector('.home-view');
 var formPage = document.querySelector('.form-view');
 var savedPage = document.querySelector('.saved-view');
-// Navigation buttons
 var coverButton = document.querySelector('.random-cover-button');
 var createCoverButton = document.querySelector('.create-new-book-button')
 var coverFormButton = document.querySelector('.make-new-button');
 var saveButton = document.querySelector('.save-cover-button');
 var homeButton = document.querySelector('.home-button');
 var viewSavedButton = document.querySelector('.view-saved-button');
-// Cover elements linked to home page display
 var cover = document.querySelector('.cover-image');
 var title = document.querySelector('.cover-title');
 var descriptor1 = document.querySelector('.tagline-1');
@@ -33,31 +30,32 @@ var savedCovers = [
 // Add your event listeners here 👇
 // Opens form-view when button is clicked
 coverFormButton.addEventListener('click', openForm);
-// Changes cover when cover button is clicked
 coverButton.addEventListener('click', changeCovers);
-// Opens saved covers view when button is clicked
 viewSavedButton.addEventListener('click', openSavedCovers);
-// Opens home page view when button is clicked
 homeButton.addEventListener('click', openHomePage);
-// Creates new book cover from user inputs
 createCoverButton.addEventListener('click', createNewBook);
-// Save button functionality
 saveButton.addEventListener('click', copyHomePage);
 
-// Create your event handlers and other functions here 👇
+// Navigation functions
+function openForm() {
+  homePage.classList.add('hidden');
+  coverButton.classList.add('hidden');
+  saveButton.classList.add('hidden');
+  homeButton.classList.remove('hidden');
+  formPage.classList.remove('hidden');
+}
 
-// We've provided one function to get you started
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
-// Saves home page cover to savedCovers array
+
 function copyHomePage() {
   if (!savedCovers.includes(newCover)) {
     savedCovers.push(newCover)
     updateViewSavedCover(newCover)
   }
 }
-// Creates new book
+
 function createNewBook() {
   event.preventDefault();
   var userCover = document.querySelector('.user-cover')
@@ -75,22 +73,14 @@ function createNewBook() {
   displayCover(newCover)
   openHomePage()
 }
-// Updates home page cover based on cover class
+
 function displayCover(coverInstance) {
   cover.src = coverInstance.cover
   title.innerText = coverInstance.title
   descriptor1.innerText = coverInstance.tagline1
   descriptor2.innerText = coverInstance.tagline2
 }
-// Opens form-view
-function openForm() {
-  homePage.classList.add('hidden');
-  coverButton.classList.add('hidden');
-  saveButton.classList.add('hidden');
-  homeButton.classList.remove('hidden');
-  formPage.classList.remove('hidden');
-}
-// Opens saved-covers view
+
 function openSavedCovers() {
   homePage.classList.add('hidden');
   saveButton.classList.add('hidden');
@@ -98,7 +88,7 @@ function openSavedCovers() {
   homeButton.classList.remove('hidden');
   savedPage.classList.remove('hidden');
 }
-// Opens home page
+
 function openHomePage() {
   savedPage.classList.add('hidden');
   homeButton.classList.add('hidden');
@@ -109,12 +99,12 @@ function openHomePage() {
   coverFormButton.classList.remove('hidden');
   homePage.classList.remove('hidden');
 }
-// Generates random cover and changes home page display
+
 function changeCovers() {
   newCover = makeCoverInstance(selectRandomCover(), selectRandomTitle(), selectRandomDescriptor(), selectRandomDescriptor())
   displayCover(newCover)
 }
-// Pulls random values for changeCovers function
+
 function selectRandomCover() {
   return covers[getRandomIndex(covers)]
 }
@@ -124,17 +114,11 @@ function selectRandomTitle() {
 function selectRandomDescriptor() {
   return descriptors[getRandomIndex(descriptors)]
 }
-// Instantiates a new cover instance from
+
 function makeCoverInstance(cover, title, desc1, desc2) {
   return new Cover(cover, title, desc1, desc2);
 }
-//     <section class="main-cover">
-//         <img class="cover-image" src="./assets/prairie.jpg">
-//         <h2 class="cover-title">Windswept Hearts</h2>
-//         <h3 class="tagline">A tale of <span class="tagline-1">passion</span> and <span class="tagline-2">woe</span></h3>
-//         <img class="price-tag" src="./assets/price.png">
-//         <img class="overlay" src="./assets/overlay.png">
-//       </section>
+
 function addElement() {
   const newImg = document.createElement('img')
   newImg.classList.add("cover-image")
@@ -143,10 +127,22 @@ function addElement() {
 
 function updateViewSavedCover(newCover) {
   var newCoverStructure = `<section id="${newCover.id}" class="mini-cover">
-  <img class="mini-cover" src="${newCover.cover}">
+  <img class="mini-cover" src="${newCover.cover}" ondblclick="deleteCover(parentNode.id)">
   <h2 class="cover-title">${newCover.title}</h2>
   <h3 class="tagline">A tale of ${newCover.tagline1} and ${newCover.tagline2}</span></h3>
   </section>`
 
   savedCoversSection.innerHTML = savedCoversSection.innerHTML + newCoverStructure
+}
+
+function deleteCover(id) {
+  var instanceId = parseInt(id, 10)
+  var coverToDelete = document.getElementById(instanceId)
+  coverToDelete.innerHTML = ''
+  coverToDelete.remove()
+  for (i = 0; i < savedCovers.length; i++) {
+    if (instanceId === savedCovers[i].id) {
+      savedCovers.splice(i, 1)
+    }
+  }
 }
